@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
 import './App.css';
+import EmployeeDetails from './Components/employeeDetails/employeesDetails'
+import Modal from './UI/Modal/Modal'
+import Form from './UI/Form/Form'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  state = {
+    createUser : false
+  }
+      
+   createUserHandler = () => {
+    this.setState({createUser : true})
+  }
+  cancelUserHandler = () => {
+    this.setState({createUser : false})
+  }
+
+  render() {
+    return (
+
+      <div className="App">
+      <button className="btn btn-primary" onClick={this.createUserHandler}>Add New Employee</button>
+      <Modal show={this.state.createUser} clicked={this.cancelUserHandler}>
+         <Form cancel = {this.cancelUserHandler} />
+      </Modal>  
+      <h1>Employee Details Page</h1>
+
+        <EmployeeDetails />
+        
+      </div>
+    )
+  }
 }
+
 
 export default App;

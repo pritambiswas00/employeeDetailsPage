@@ -1,0 +1,13 @@
+.Modal { 
+    position: fixed;
+    z-index: 400;
+    background-color: aquamarine;
+    width: 35%;
+    height: 40vh;
+    left: 35%;
+    top: 20%;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+    transition: all 0.3 ease-out;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
